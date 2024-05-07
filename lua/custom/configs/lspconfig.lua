@@ -6,7 +6,7 @@ local capabilities = base.capabilities
 
 local lspconfig = require("lspconfig")
 
-lspconfig.pyright.setup{}
+lspconfig.pyright.setup({})
 
 lspconfig.clangd.setup({
   on_attach = function (client,bufnr)
@@ -25,8 +25,6 @@ lspconfig.zls.setup({
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
-  filetypes = {"rust"},
-  root_dir = lspconfig.util.root_pattern("Cargo.toml"),
   settings = {
     ['rust_analyzer'] = {
       cargo = {
