@@ -23,7 +23,7 @@ create_autocmd({ "UIEnter" }, {
   end,
 })
 
-M.ui = { theme = 'vscode_dark'}
+M.ui = { theme = 'catppuccin'}
 M.plugins = "custom.plugins"
 
 return M

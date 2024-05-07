@@ -4,7 +4,7 @@ local base = require("plugins.configs.lspconfig")
 local on_attach = base.on_attach
 local capabilities = base.capabilities
 
-local lspconfig = require "lspconfig"
+local lspconfig = require("lspconfig")
 
 lspconfig.pyright.setup{}
 
@@ -22,3 +22,16 @@ lspconfig.clangd.setup({
 lspconfig.zls.setup({
 })
 
+lspconfig.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = {"rust"},
+  root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+  settings = {
+    ['rust_analyzer'] = {
+      cargo = {
+        allFeatures = true
+      }
+    }
+  }
+})

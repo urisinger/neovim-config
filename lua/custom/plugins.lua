@@ -34,19 +34,6 @@ local plugins = {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    config = function(_)
-      require('rust-tools').setup({
-        server = {
-          on_attach =  require("plugins.configs.lspconfig").on_attach,
-        }
-      })
-    end,
-  },
-
-  {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
@@ -54,7 +41,6 @@ local plugins = {
         "clang-format",
         "zls",
         "pyright",
-        "rust-analyzer",
       }
     }
   }
